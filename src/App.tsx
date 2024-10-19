@@ -1,7 +1,9 @@
+import CVPreview from './components/CVPreview'
+
 export default function App() {
     return (
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <div className="mt-8 mr-8 mb-8 overflow-auto">
+        <CVPreview/>
+      </div>
     )
 }
