@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'helvetica': ['Helvetica', 'Arial', 'sans-serif'],
+      },
+    },
   },
   plugins: [
     plugin(function({ addBase, theme }) {
