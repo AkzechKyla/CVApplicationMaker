@@ -2,8 +2,8 @@ import { PersonalDetailsInfo } from './CVPreview/PersonalDetailsInfo';
 
 function ExperienceInfo() {
     return <div>
-        <p>Experience</p>
-        <div>
+        <h1 className="font-bold">Experience</h1>
+        <div className="flex">
             <div>2006-12 - present</div>
             <div>
                 <p>Senior Project Manager</p>
