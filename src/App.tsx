@@ -1,4 +1,4 @@
-import CVPreview from './components/CVPreview'
+import CVPreview from './pages/CVPreview'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
 import PersonalDetails from './components/CVForm/PersonalDetails'
