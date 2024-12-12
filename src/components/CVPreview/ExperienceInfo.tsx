@@ -1,9 +1,9 @@
 export function ExperienceInfo() {
     return <div>
         <h1 className="font-bold">Experience</h1>
-        <div className="flex">
-            <div>2006-12 - present</div>
-            <div>
+        <div className="flex w-full">
+            <div className="w-2/6">2012 - present</div>
+            <div className="w-full">
                 <p>Senior Project Manager</p>
                 <p>Seton Hospital, ME</p>
                 <ul className="list-disc pl-8">
