@@ -6,7 +6,7 @@ export function ExperienceInfo() {
             <div className="w-full">
                 <p>Senior Project Manager</p>
                 <p>Seton Hospital, ME</p>
-                <ul className="list-disc pl-8">
+                <ul className="list-disc pl-8 text-base">
                     <li>Oversaw all major hospital IT projects for 10+ years, focus on cost reduction.</li>
                     <li>Responsible for creating, improving, and developing IT project strategies.</li>
                     <li>Implemented the highly successful Lean Training and Six Sigma projects for all employees. Cut costs by 32%.</li>
