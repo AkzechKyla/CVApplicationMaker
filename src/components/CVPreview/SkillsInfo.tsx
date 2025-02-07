@@ -1,7 +1,11 @@
 export function SkillsInfo() {
     return(
         <div>
-            <h1 className="font-bold">Skills</h1>
+            <div className="flex items-center">
+                <span className="material-icons text-3xl">lightbulb</span>
+                <h1 className="font-bold ml-2">Skills</h1>
+            </div>
+            <hr className="border-gray-400 mb-2"/>
             <div className="flex w-full">
                 <div className="w-2/6"></div>
                 <div className="w-full text-base">

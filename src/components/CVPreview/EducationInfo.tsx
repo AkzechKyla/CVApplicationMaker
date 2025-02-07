@@ -1,6 +1,10 @@
 export function EducationInfo() {
     return <div>
-        <h1 className="font-bold">Education</h1>
+        <div className="flex items-center">
+            <span className="material-icons text-3xl">school</span>
+            <h1 className="font-bold ml-2">Education</h1>
+        </div>
+        <hr className="border-gray-400 mb-2"/>
         <div className="flex w-full">
             <div className="w-2/6">1996-09 - 2001-05</div>
             <div className="w-full">

@@ -1,7 +1,11 @@
 export function SoftwareInfo() {
     return(
         <div>
-            <h1 className="font-bold">Software</h1>
+            <div className="flex items-center">
+                <span className="material-icons text-3xl">computer</span>
+                <h1 className="font-bold ml-2">Software</h1>
+            </div>
+            <hr className="border-gray-400 mb-2"/>
             <div className="flex w-full">
                 <div className="w-2/6"></div>
                 <div className="w-full flex-row">

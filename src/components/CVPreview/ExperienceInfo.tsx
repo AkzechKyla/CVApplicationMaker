@@ -1,6 +1,10 @@
 export function ExperienceInfo() {
     return <div>
-        <h1 className="font-bold">Experience</h1>
+        <div className="flex items-center">
+            <span className="material-icons text-3xl">work</span>
+            <h1 className="font-bold ml-2">Experience</h1>
+        </div>
+        <hr className="border-gray-400 mb-2"/>
         <div className="flex w-full">
             <div className="w-2/6">2012 - present</div>
             <div className="w-full">
