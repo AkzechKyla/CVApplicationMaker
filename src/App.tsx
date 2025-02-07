@@ -1,5 +1,5 @@
 import CVPreview from './pages/CVPreview'
-import Header from './components/Header'
+import Title from './components/Title'
 import Sidebar from './components/Sidebar'
 import PersonalDetails from './components/CVForm/PersonalDetails'
 
