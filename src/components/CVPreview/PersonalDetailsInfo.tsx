@@ -1,14 +1,20 @@
-export function PersonalDetailsInfo() {
+import UserInfo from "../../models/UserInfo";
+
+interface Props {
+    userInfo: UserInfo;
+}
+
+export function PersonalDetailsInfo({ userInfo }: Props) {
     return(
         <div className="pb-4 text-sm">
-            <p className="font-bold text-4xl mb-1">John Smith</p>
-            <p className="text-lg mb-6">IT Project Manager</p>
+            <p className="font-bold text-4xl mb-1">{userInfo.fullName}</p>
+            <p className="text-lg mb-6">{userInfo.position}</p>
             <div className="grid grid-cols-3 mb-6 gap-y-2 w-full">
-                <p className="inline text-sm">774-987-4009</p>
-                <p className="inline text-sm">j.smith@uptowork.com</p>
-                <p className="inline text-sm">Manila, Philippines</p>
+                <p className="inline text-sm">{userInfo.contactNumber}</p>
+                <p className="inline text-sm">{userInfo.email}</p>
+                <p className="inline text-sm">{userInfo.cityProvince}</p>
             </div>
-            <p className="text-sm">IT Professional with over 10 years of experience specializing in IT department management for international logistics companies. I can implement effective IT strategies at local and global levels. My greatest strength is business awareness, which enables me to permanently streamline infrastructure and applications. Seeking to leverage my IT management skills at Sancorp Inc.</p>
+            <p className="text-sm">{userInfo.description}</p>
         </div>
     )
 }
