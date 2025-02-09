@@ -3,9 +3,17 @@
 @tailwind utilities;
 
 .sidebar-item {
-    @apply text-lg flex flex-col items-center rounded-lg p-2 cursor-pointer hover:bg-gray-200;
+    @apply text-lg flex flex-col items-center rounded-lg p-2 cursor-pointer hover:bg-gray-100;
 }
 
 .sidebar-item:active {
     @apply transform scale-95;
+}
+
+.input-box {
+    @apply mt-1 block w-full p-2 rounded-md bg-gray-100 text-sm;
+}
+
+.add-button {
+    @apply text-base bg-white border-2 border-gray-200 font-bold py-2 px-4 rounded-3xl hover:bg-gray-200 transition duration-200;
 }
