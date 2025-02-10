@@ -43,6 +43,7 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
 
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
+            <h1 className="font-bold">Experience</h1>
 
             {userInfo.experiences.map((experience, expIndex) => (
                 <ExperienceItem
@@ -95,8 +96,6 @@ function ExperienceItem({userInfo, setUserInfo, experience, expIndex, updateExpe
     }
 
     return <>
-        <h1 className="font-bold">Experience</h1>
-
         <div className="flex justify-between">
             <p className="text-base font-bold">Experience {expIndex + 1}</p>
             <button onClick={() => removeExperience(expIndex)}>
