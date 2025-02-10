@@ -28,7 +28,7 @@ export default function App() {
               <Sidebar/>
             </div>
             <div className="flex w-full flex-col gap-5">
-              <PersonalDetailsForm/>
+              <PersonalDetailsForm userInfo={userInfo} setUserInfo={setUserInfo}/>
               <ExperienceForm/>
               <EducationForm/>
               <SkillsForm/>
