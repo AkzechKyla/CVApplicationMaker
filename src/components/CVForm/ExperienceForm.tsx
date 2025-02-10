@@ -15,6 +15,20 @@ interface Experience {
 }
 
 function ExperienceForm({ userInfo, setUserInfo }: Props) {
+    function addExperience() {
+        const newExperience: Experience = {
+            positionName: '',
+            companyName: '',
+            yearStarted: '',
+            yearEnded: '',
+            isPresent: false,
+            descriptions: []
+        };
+        setUserInfo({
+            ...userInfo,
+            experiences: [...userInfo.experiences, newExperience]});
+    }
+
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
 
@@ -23,7 +37,7 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
             ))}
 
             <div className="flex justify-center">
-                <button className="add-button">
+                <button className="add-button" onClick={addExperience}>
                     <span className="text-lg">+</span> Experience
                 </button>
             </div>
