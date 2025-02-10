@@ -76,6 +76,12 @@ interface ExperienceItemProps {
 }
 
 function ExperienceItem({userInfo, setUserInfo, experience, expIndex, updateExperience, removeExperience}: ExperienceItemProps) {
+    function addDescription(expIndex: number) {
+        const updatedExperiences = [...userInfo.experiences];
+        updatedExperiences[expIndex].descriptions.push('');
+        setUserInfo({...userInfo, experiences: updatedExperiences});
+    }
+
     function updateDescription(expIndex: number, descIndex: number, value: string) {
         const updatedExperiences = [...userInfo.experiences];
         updatedExperiences[expIndex].descriptions[descIndex] = value;
@@ -158,7 +164,10 @@ function ExperienceItem({userInfo, setUserInfo, experience, expIndex, updateExpe
             />
         </form>
 
-        <p className="block text-sm font-bold text-blue-600 hover:underline cursor-pointer">
+        <p
+            className="block text-sm font-bold text-blue-600 hover:underline cursor-pointer"
+            onClick={() => addDescription(expIndex)}
+        >
             <span>+ </span>
             Add Description
         </p>
