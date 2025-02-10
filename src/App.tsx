@@ -55,7 +55,7 @@ export default function App() {
             </div>
             <div className="flex w-full flex-col gap-5">
               <PersonalDetailsForm userInfo={userInfo} setUserInfo={setUserInfo}/>
-              <ExperienceForm/>
+              <ExperienceForm userInfo={userInfo} setUserInfo={setUserInfo}/>
               <EducationForm/>
               <SkillsForm/>
               <SoftwareForm/>
