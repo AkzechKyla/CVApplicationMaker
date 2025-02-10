@@ -35,21 +35,9 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
         setUserInfo({...userInfo, experiences: updatedExperiences});
     }
 
-    function updateDescription(expIndex: number, descIndex: number, value: string) {
-        const updatedExperiences = [...userInfo.experiences];
-        updatedExperiences[expIndex].descriptions[descIndex] = value;
-        setUserInfo({...userInfo, experiences: updatedExperiences});
-    }
-
     function removeExperience(expIndex: number) {
         const updatedExperiences = [...userInfo.experiences];
         updatedExperiences.splice(expIndex, 1);
-        setUserInfo({...userInfo, experiences: updatedExperiences});
-    }
-
-    function removeDescription(expIndex: number, descIndex: number) {
-        const updatedExperiences = [...userInfo.experiences];
-        updatedExperiences[expIndex].descriptions.splice(descIndex, 1);
         setUserInfo({...userInfo, experiences: updatedExperiences});
     }
 
@@ -58,13 +46,13 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
 
             {userInfo.experiences.map((experience, expIndex) => (
                 <ExperienceItem
+                    userInfo={userInfo}
+                    setUserInfo={setUserInfo}
                     key={expIndex}
                     expIndex={expIndex}
                     experience={experience}
                     updateExperience={updateExperience}
-                    updateDescription={updateDescription}
                     removeExperience={removeExperience}
-                    removeDescription={removeDescription}
                 />
             ))}
 
@@ -79,15 +67,27 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
 }
 
 interface ExperienceItemProps {
+    userInfo: UserInfo;
+    setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
     experience: Experience;
     expIndex: number;
     updateExperience: (expIndex: number, key: string, value: string | boolean) => void;
-    updateDescription: (expIndex: number, descIndex: number, value: string) => void;
     removeExperience: (expIndex: number) => void;
-    removeDescription: (expIndex: number, descIndex: number) => void;
 }
 
-function ExperienceItem({experience, expIndex, updateExperience, updateDescription, removeExperience, removeDescription}: ExperienceItemProps) {
+function ExperienceItem({userInfo, setUserInfo, experience, expIndex, updateExperience, removeExperience}: ExperienceItemProps) {
+    function updateDescription(expIndex: number, descIndex: number, value: string) {
+        const updatedExperiences = [...userInfo.experiences];
+        updatedExperiences[expIndex].descriptions[descIndex] = value;
+        setUserInfo({...userInfo, experiences: updatedExperiences});
+    }
+
+    function removeDescription(expIndex: number, descIndex: number) {
+        const updatedExperiences = [...userInfo.experiences];
+        updatedExperiences[expIndex].descriptions.splice(descIndex, 1);
+        setUserInfo({...userInfo, experiences: updatedExperiences});
+    }
+
     return <>
         <h1 className="font-bold">Experience</h1>
 
