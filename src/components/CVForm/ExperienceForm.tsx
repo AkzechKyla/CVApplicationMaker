@@ -41,6 +41,12 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
         setUserInfo({...userInfo, experiences: updatedExperiences});
     }
 
+    function removeExperience(expIndex: number) {
+        const updatedExperiences = [...userInfo.experiences];
+        updatedExperiences.splice(expIndex, 1);
+        setUserInfo({...userInfo, experiences: updatedExperiences});
+    }
+
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
 
@@ -51,6 +57,7 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
                     experience={experience}
                     updateExperience={updateExperience}
                     updateDescription={updateDescription}
+                    removeExperience={removeExperience}
                 />
             ))}
 
@@ -69,15 +76,16 @@ interface ExperienceItemProps {
     expIndex: number;
     updateExperience: (expIndex: number, key: string, value: string | boolean) => void;
     updateDescription: (expIndex: number, descIndex: number, value: string) => void;
+    removeExperience: (expIndex: number) => void;
 }
 
-function ExperienceItem({experience, expIndex, updateExperience, updateDescription}: ExperienceItemProps) {
+function ExperienceItem({experience, expIndex, updateExperience, updateDescription, removeExperience}: ExperienceItemProps) {
     return <>
         <h1 className="font-bold">Experience</h1>
 
         <div className="flex justify-between">
             <p className="text-base font-bold">Experience {expIndex + 1}</p>
-            <button>
+            <button onClick={() => removeExperience(expIndex)}>
                 <span className="material-icons text-red-600">delete</span>
             </button>
         </div>
