@@ -47,6 +47,12 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
         setUserInfo({...userInfo, experiences: updatedExperiences});
     }
 
+    function removeDescription(expIndex: number, descIndex: number) {
+        const updatedExperiences = [...userInfo.experiences];
+        updatedExperiences[expIndex].descriptions.splice(descIndex, 1);
+        setUserInfo({...userInfo, experiences: updatedExperiences});
+    }
+
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
 
@@ -58,6 +64,7 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
                     updateExperience={updateExperience}
                     updateDescription={updateDescription}
                     removeExperience={removeExperience}
+                    removeDescription={removeDescription}
                 />
             ))}
 
@@ -77,9 +84,10 @@ interface ExperienceItemProps {
     updateExperience: (expIndex: number, key: string, value: string | boolean) => void;
     updateDescription: (expIndex: number, descIndex: number, value: string) => void;
     removeExperience: (expIndex: number) => void;
+    removeDescription: (expIndex: number, descIndex: number) => void;
 }
 
-function ExperienceItem({experience, expIndex, updateExperience, updateDescription, removeExperience}: ExperienceItemProps) {
+function ExperienceItem({experience, expIndex, updateExperience, updateDescription, removeExperience, removeDescription}: ExperienceItemProps) {
     return <>
         <h1 className="font-bold">Experience</h1>
 
@@ -146,6 +154,7 @@ function ExperienceItem({experience, expIndex, updateExperience, updateDescripti
                 expIndex={expIndex}
                 descriptions={experience.descriptions}
                 updateDescription={updateDescription}
+                removeDescription={removeDescription}
             />
         </form>
 
@@ -160,9 +169,10 @@ interface DescriptionListProps {
     expIndex: number;
     descriptions: string[];
     updateDescription: (expIndex: number, descIndex: number, value: string) => void;
+    removeDescription: (expIndex: number, descIndex: number) => void;
 }
 
-function DescriptionList({ expIndex, descriptions, updateDescription }: DescriptionListProps) {
+function DescriptionList({ expIndex, descriptions, updateDescription, removeDescription }: DescriptionListProps) {
     return <div>
         {descriptions.map((description, descIndex) => <div key={descIndex}>
             <label className="block text-sm font-bold">Description</label>
@@ -172,7 +182,10 @@ function DescriptionList({ expIndex, descriptions, updateDescription }: Descript
                     value={description}
                     onChange={(e) => updateDescription(expIndex, descIndex, e.target.value)}>
                 </textarea>
-                <button>
+                <button onClick={(e) => {
+                    e.preventDefault();
+                    removeDescription(expIndex, descIndex);
+                }}>
                     <span className="material-icons text-red-600">delete</span>
                 </button>
             </div>
