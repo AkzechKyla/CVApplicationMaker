@@ -29,11 +29,22 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
             experiences: [...userInfo.experiences, newExperience]});
     }
 
+    function updateExperience(expIndex: number, key: string, value: string | boolean) {
+        const updatedExperiences = [...userInfo.experiences];
+        updatedExperiences[expIndex][key] = value;
+        setUserInfo({...userInfo, experiences: updatedExperiences});
+    }
+
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
 
             {userInfo.experiences.map((experience, expIndex) => (
-                <ExperienceItem key={expIndex} experience={experience} expIndex={expIndex}  />
+                <ExperienceItem
+                    key={expIndex}
+                    expIndex={expIndex}
+                    experience={experience}
+                    updateExperience={updateExperience}
+                />
             ))}
 
             <div className="flex justify-center">
@@ -49,9 +60,10 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
 interface ExperienceItemProps {
     experience: Experience;
     expIndex: number;
+    updateExperience: (expIndex: number, key: string, value: string | boolean) => void;
 }
 
-function ExperienceItem({experience, expIndex}: ExperienceItemProps) {
+function ExperienceItem({experience, expIndex, updateExperience}: ExperienceItemProps) {
     return <>
         <h1 className="font-bold">Experience</h1>
 
@@ -65,25 +77,49 @@ function ExperienceItem({experience, expIndex}: ExperienceItemProps) {
         <form className="space-y-2">
             <div>
                 <label className="block text-sm font-bold">Position Name</label>
-                <input type="text" value={experience.positionName} className="input-box" />
+                <input
+                    type="text"
+                    value={experience.positionName}
+                    className="input-box"
+                    onChange={(e) => {updateExperience(expIndex, 'positionName', e.target.value)}}
+                />
             </div>
             <div>
                 <label className="block text-sm font-bold">Company Name</label>
-                <input type="text" value={experience.companyName} className="input-box" />
+                <input
+                    type="text"
+                    value={experience.companyName}
+                    className="input-box"
+                    onChange={(e) => {updateExperience(expIndex, 'companyName', e.target.value)}}
+                />
             </div>
             <div className="flex gap-4 items-center">
                 <div>
                     <label className="block text-sm font-bold">Year Started</label>
-                    <input type="text" value={experience.yearStarted} className="input-box" />
+                    <input
+                        type="text"
+                        value={experience.yearStarted}
+                        className="input-box"
+                        onChange={(e) => {updateExperience(expIndex, 'yearStarted', e.target.value)}}
+                    />
                 </div>
                 <div>
                     <label className="block text-sm font-bold">Year Ended</label>
 
                     <div className="flex items-center gap-4">
-                        <input type="text" value={experience.yearEnded} className="input-box" />
+                        <input
+                            type="text"
+                            value={experience.yearEnded}
+                            className="input-box"
+                            onChange={(e) => {updateExperience(expIndex, 'yearEnded', e.target.value)}}
+                        />
 
                         <div className="flex gap-1">
-                            <input type="checkbox" checked={experience.isPresent} id="present" />
+                            <input
+                                type="checkbox"
+                                checked={experience.isPresent}
+                                onChange={(e) => updateExperience(expIndex, 'isPresent', e.target.checked)}
+                            />
                             <label htmlFor="present" className="text-sm font-bold">Present</label>
                         </div>
                     </div>
