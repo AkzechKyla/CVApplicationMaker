@@ -16,7 +16,33 @@ export default function App() {
       '774-987-4009',
       'john.smith@gmail.com',
       'New York, NY',
-      'IT Professional with over 10 years of experience specializing in IT department management for international logistics companies. I can implement effective IT strategies at local and global levels. My greatest strength is business awareness, which enables me to permanently streamline infrastructure and applications. Seeking to leverage my IT management skills at Sancorp Inc.'
+      'IT Professional with over 10 years of experience specializing in IT department management for international logistics companies. I can implement effective IT strategies at local and global levels. My greatest strength is business awareness, which enables me to permanently streamline infrastructure and applications. Seeking to leverage my IT management skills at Sancorp Inc.',
+        [
+            {
+                positionName: 'IT Manager',
+                companyName: 'Logistics International',
+                yearStarted: '2015',
+                yearEnded: '2020',
+                isPresent: false,
+                descriptions: [
+                    'Managed a team of 10 IT professionals.',
+                    'Implemented new IT strategies that reduced costs by 20%.',
+                    'Oversaw the migration to a new ERP system.'
+                ]
+            },
+            {
+                positionName: 'Senior IT Specialist',
+                companyName: 'Tech Solutions',
+                yearStarted: '2010',
+                yearEnded: '2014',
+                isPresent: false,
+                descriptions: [
+                    'Provided IT support to over 200 employees.',
+                    'Developed and maintained company’s internal software.',
+                    'Trained new IT staff.'
+                ]
+            }
+        ]
     ));
 
     return (
