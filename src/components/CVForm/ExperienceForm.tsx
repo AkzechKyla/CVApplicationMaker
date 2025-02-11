@@ -1,4 +1,5 @@
 import UserInfo from "../../models/UserInfo";
+import DescriptionList from "./DescriptionList";
 
 interface Props {
     userInfo: UserInfo;
@@ -77,24 +78,6 @@ interface ExperienceItemProps {
 }
 
 function ExperienceItem({userInfo, setUserInfo, experience, expIndex, updateExperience, removeExperience}: ExperienceItemProps) {
-    function addDescription(expIndex: number) {
-        const updatedExperiences = [...userInfo.experiences];
-        updatedExperiences[expIndex].descriptions.push('');
-        setUserInfo({...userInfo, experiences: updatedExperiences});
-    }
-
-    function updateDescription(expIndex: number, descIndex: number, value: string) {
-        const updatedExperiences = [...userInfo.experiences];
-        updatedExperiences[expIndex].descriptions[descIndex] = value;
-        setUserInfo({...userInfo, experiences: updatedExperiences});
-    }
-
-    function removeDescription(expIndex: number, descIndex: number) {
-        const updatedExperiences = [...userInfo.experiences];
-        updatedExperiences[expIndex].descriptions.splice(descIndex, 1);
-        setUserInfo({...userInfo, experiences: updatedExperiences});
-    }
-
     return <>
         <div className="flex justify-between">
             <p className="text-base font-bold">Experience {expIndex + 1}</p>
@@ -156,49 +139,13 @@ function ExperienceItem({userInfo, setUserInfo, experience, expIndex, updateExpe
             </div>
 
             <DescriptionList
-                expIndex={expIndex}
+                index={expIndex}
                 descriptions={experience.descriptions}
-                updateDescription={updateDescription}
-                removeDescription={removeDescription}
+                userInfo={userInfo}
+                setUserInfo={setUserInfo}
             />
         </form>
-
-        <p
-            className="block text-sm font-bold text-blue-600 hover:underline cursor-pointer"
-            onClick={() => addDescription(expIndex)}
-        >
-            <span>+ </span>
-            Add Description
-        </p>
     </>;
-}
-
-interface DescriptionListProps {
-    expIndex: number;
-    descriptions: string[];
-    updateDescription: (expIndex: number, descIndex: number, value: string) => void;
-    removeDescription: (expIndex: number, descIndex: number) => void;
-}
-
-function DescriptionList({ expIndex, descriptions, updateDescription, removeDescription }: DescriptionListProps) {
-    return <div>
-        {descriptions.map((description, descIndex) => <div key={descIndex}>
-            <label className="block text-sm font-bold">Description</label>
-            <div className="flex gap-2">
-                <textarea
-                    className="input-box"
-                    value={description}
-                    onChange={(e) => updateDescription(expIndex, descIndex, e.target.value)}>
-                </textarea>
-                <button onClick={(e) => {
-                    e.preventDefault();
-                    removeDescription(expIndex, descIndex);
-                }}>
-                    <span className="material-icons text-red-600">delete</span>
-                </button>
-            </div>
-        </div>)}
-    </div>;
 }
 
 export default ExperienceForm;
