@@ -21,8 +21,8 @@ export default function App() {
             {
                 positionName: 'IT Manager',
                 companyName: 'Logistics International',
-                yearStarted: '2015',
-                yearEnded: '2020',
+                dateStarted: '2015-03',
+                dateEnded: '2020-11',
                 isPresent: false,
                 descriptions: [
                     'Managed a team of 10 IT professionals.',
@@ -35,8 +35,8 @@ export default function App() {
           {
             schoolName: 'University of New York',
             degree: 'Bachelor of Science in Computer Science',
-            startDate: '11/02/2005',
-            endDate: '05/09/2009',
+            startDate: '2005-11',
+            endDate: '2009-11',
             isPresent: false,
             descriptions: [
               'Graduated with honors.',

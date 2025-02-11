@@ -72,13 +72,21 @@ function EducationItem({ index, education, userInfo, setUserInfo }: EducationIte
             <div className="flex gap-4 items-center">
                 <div>
                     <label className="block text-sm font-bold">Start Date</label>
-                    <input type="date" className="input-box" />
+                    <input
+                        type="month"
+                        value={education.startDate}
+                        className="input-box"
+                    />
                 </div>
                 <div>
                     <label className="block text-sm font-bold">End Date</label>
 
                     <div className="flex items-center gap-4">
-                        <input type="date" className="input-box" />
+                        <input
+                            type="month"
+                            value={education.endDate}
+                            className="input-box"
+                        />
 
                         <div className="flex gap-1">
                             <input type="checkbox" id="present" />

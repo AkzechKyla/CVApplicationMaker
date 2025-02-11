@@ -14,7 +14,7 @@ export function ExperienceInfo({ userInfo }: Props) {
 
         {userInfo.experiences.map((experience, index) => (
             <div key={index} className="flex w-full mb-2">
-                <div className="w-2/6 font-bold text-sm">{experience.yearStarted} - {experience.isPresent ? 'present' : experience.yearEnded}</div>
+                <div className="w-2/6 font-bold text-sm">{experience.dateStarted} - {experience.isPresent ? 'present' : experience.dateEnded}</div>
                 <div className="w-full space-y-1">
                     <p className="font-bold">{experience.positionName}</p>
                     <p className="text-sm italic">{experience.companyName}</p>

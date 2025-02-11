@@ -9,8 +9,8 @@ interface Props {
 interface Experience {
     positionName: string;
     companyName: string;
-    yearStarted: string;
-    yearEnded?: string;
+    dateStarted: string;
+    dateEnded?: string;
     isPresent: boolean;
     descriptions: string[];
 }
@@ -20,8 +20,8 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
         const newExperience: Experience = {
             positionName: '',
             companyName: '',
-            yearStarted: '',
-            yearEnded: '',
+            dateStarted: '',
+            dateEnded: '',
             isPresent: false,
             descriptions: []
         };
@@ -107,23 +107,23 @@ function ExperienceItem({userInfo, setUserInfo, experience, expIndex, updateExpe
             </div>
             <div className="flex gap-4 items-center">
                 <div>
-                    <label className="block text-sm font-bold">Year Started</label>
+                    <label className="block text-sm font-bold">Date Started</label>
                     <input
-                        type="text"
-                        value={experience.yearStarted}
+                        type="month"
+                        value={experience.dateStarted}
                         className="input-box"
-                        onChange={(e) => {updateExperience(expIndex, 'yearStarted', e.target.value)}}
+                        onChange={(e) => {updateExperience(expIndex, 'dateStarted', e.target.value)}}
                     />
                 </div>
                 <div>
-                    <label className="block text-sm font-bold">Year Ended</label>
+                    <label className="block text-sm font-bold">Date Ended</label>
 
                     <div className="flex items-center gap-4">
                         <input
-                            type="text"
-                            value={experience.yearEnded}
+                            type="month"
+                            value={experience.dateEnded}
                             className="input-box"
-                            onChange={(e) => {updateExperience(expIndex, 'yearEnded', e.target.value)}}
+                            onChange={(e) => {updateExperience(expIndex, 'dateEnded', e.target.value)}}
                         />
 
                         <div className="flex gap-1">
