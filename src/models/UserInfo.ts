@@ -7,6 +7,15 @@ interface Experience {
   descriptions: string[];
 }
 
+interface Education {
+  schoolName: string;
+  degree: string;
+  startDate: string;
+  endDate?: string;
+  isPresent: boolean;
+  descriptions: string[];
+}
+
 export default class UserInfo {
   fullName: string;
   position: string;
@@ -15,8 +24,9 @@ export default class UserInfo {
   cityProvince: string;
   description: string;
   experiences: Experience[];
+  educations: Education[];
 
-  constructor(fullName: string, position: string, contactNumber: string, email: string, cityProvince: string, description: string, experiences: Experience[] = []) {
+  constructor(fullName: string, position: string, contactNumber: string, email: string, cityProvince: string, description: string, experiences: Experience[] = [], educations: Education[] = []) {
     this.fullName = fullName;
     this.position = position;
     this.contactNumber = contactNumber;
@@ -24,5 +34,6 @@ export default class UserInfo {
     this.cityProvince = cityProvince;
     this.description = description;
     this.experiences = experiences;
+    this.educations = educations;
   }
 }
