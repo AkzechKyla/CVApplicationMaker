@@ -29,9 +29,9 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
             experiences: [...userInfo.experiences, newExperience]});
     }
 
-    function updateExperience(expIndex: number, key: string, value: string | boolean) {
+    function updateExperience(expIndex: number, key: keyof Experience, value: string | boolean) {
         const updatedExperiences = [...userInfo.experiences];
-        updatedExperiences[expIndex][key] = value;
+        (updatedExperiences[expIndex][key] as typeof value) = value;
         setUserInfo({...userInfo, experiences: updatedExperiences});
     }
 
@@ -72,7 +72,7 @@ interface ExperienceItemProps {
     setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
     experience: Experience;
     expIndex: number;
-    updateExperience: (expIndex: number, key: string, value: string | boolean) => void;
+    updateExperience: (expIndex: number, key: keyof Experience, value: string | boolean) => void;
     removeExperience: (expIndex: number) => void;
 }
 
