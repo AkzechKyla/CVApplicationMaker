@@ -14,7 +14,7 @@ function CVPreview({ userInfo }: Props) {
         <div className="float-right p-8 w-[49.606rem] h-[70.156rem] drop-shadow-md bg-white">
             <PersonalDetailsInfo userInfo={userInfo}/>
             <ExperienceInfo userInfo={userInfo}/>
-            <EducationInfo />
+            <EducationInfo userInfo={userInfo}/>
             <SkillsInfo />
             <SoftwareInfo />
         </div>

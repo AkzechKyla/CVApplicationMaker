@@ -29,19 +29,20 @@ export default function App() {
                     'Implemented new IT strategies that reduced costs by 20%.',
                     'Oversaw the migration to a new ERP system.'
                 ]
-            },
-            {
-                positionName: 'Senior IT Specialist',
-                companyName: 'Tech Solutions',
-                yearStarted: '2010',
-                yearEnded: '2014',
-                isPresent: false,
-                descriptions: [
-                    'Provided IT support to over 200 employees.',
-                    'Developed and maintained company’s internal software.',
-                    'Trained new IT staff.'
-                ]
             }
+        ],
+        [
+          {
+            schoolName: 'University of New York',
+            degree: 'Bachelor of Science in Computer Science',
+            startDate: '11/02/2005',
+            endDate: '05/09/2009',
+            isPresent: false,
+            descriptions: [
+              'Graduated with honors.',
+              'Member of Student Association of Project Management.'
+            ]
+          }
         ]
     ));
 
