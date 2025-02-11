@@ -16,7 +16,7 @@ export function EducationInfo({ userInfo }: Props) {
             <div key={index} className="flex w-full">
                 <div className="w-2/6 font-bold text-sm">{education.startDate} - {education.isPresent ? education.isPresent : education.startDate}</div>
                 <div className="w-full">
-                    <p className="font-bold pb-2">{education.degree}</p>
+                    <p className="font-bold pb-2">{education.degree}, {education.schoolName}</p>
                     <ul className="list-disc pl-8 text-sm space-y-2">
                         {education.descriptions.map((description, index) => (
                             <li key={index}>{description}</li>
