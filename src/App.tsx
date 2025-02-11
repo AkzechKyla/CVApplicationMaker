@@ -47,17 +47,17 @@ export default function App() {
     ));
 
     return (
-      <div className="flex gap-6 p-8 bg-zinc-100 overflow-auto font-helvetica">
+      <div className="flex gap-6 p-8 bg-zinc-100 h-screen overflow-auto font-helvetica">
         <div className="flex-1">
           <Title/>
           <div className="flex gap-6">
             <div>
               <Sidebar/>
             </div>
-            <div className="flex w-full flex-col gap-5">
+            <div className="flex w-full flex-col gap-5 pb-8">
               <PersonalDetailsForm userInfo={userInfo} setUserInfo={setUserInfo}/>
               <ExperienceForm userInfo={userInfo} setUserInfo={setUserInfo}/>
-              <EducationForm/>
+              <EducationForm userInfo={userInfo} setUserInfo={setUserInfo}/>
               <SkillsForm/>
               <SoftwareForm/>
             </div>
