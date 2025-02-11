@@ -31,6 +31,12 @@ function EducationForm({ userInfo, setUserInfo }: Props) {
         });
     }
 
+    function removeEducation(index: number) {
+        const updatedEducations = [...userInfo.educations];
+        updatedEducations.splice(index, 1);
+        setUserInfo({...userInfo, educations: updatedEducations});
+    }
+
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
             <h1 className="font-bold">Education</h1>
@@ -41,6 +47,7 @@ function EducationForm({ userInfo, setUserInfo }: Props) {
                     education={education}
                     userInfo={userInfo}
                     setUserInfo={setUserInfo}
+                    removeEducation={removeEducation}
                 />
             ))}
 
@@ -58,13 +65,14 @@ interface EducationItem {
     education: Education;
     userInfo: UserInfo;
     setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
+    removeEducation: (index: number) => void;
 }
 
-function EducationItem({ index, education, userInfo, setUserInfo }: EducationItem) {
+function EducationItem({ index, education, userInfo, setUserInfo, removeEducation }: EducationItem) {
     return <>
         <div className="flex justify-between">
             <p className="text-base font-bold">Education {index + 1}</p>
-            <button>
+            <button onClick={() => removeEducation(index)}>
                 <span className="material-icons text-red-600">delete</span>
             </button>
         </div>
