@@ -5,25 +5,26 @@ interface Props {
     descriptions: string[];
     userInfo: UserInfo;
     setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
+    category: 'experiences' | 'educations';
 }
 
-function DescriptionList({ index, descriptions, userInfo, setUserInfo }: Props) {
+function DescriptionList({ index, descriptions, userInfo, setUserInfo, category }: Props) {
     function addDescription(index: number) {
-        const updatedExperiences = [...userInfo.experiences];
+        const updatedExperiences = [...userInfo[category]];
         updatedExperiences[index].descriptions.push('');
-        setUserInfo({...userInfo, experiences: updatedExperiences});
+        setUserInfo({...userInfo, [category]: updatedExperiences});
     }
 
     function updateDescription(index: number, descIndex: number, value: string) {
-        const updatedExperiences = [...userInfo.experiences];
+        const updatedExperiences = [...userInfo[category]];
         updatedExperiences[index].descriptions[descIndex] = value;
-        setUserInfo({...userInfo, experiences: updatedExperiences});
+        setUserInfo({...userInfo, [category]: updatedExperiences});
     }
 
     function removeDescription(index: number, descIndex: number) {
-        const updatedExperiences = [...userInfo.experiences];
+        const updatedExperiences = [...userInfo[category]];
         updatedExperiences[index].descriptions.splice(descIndex, 1);
-        setUserInfo({...userInfo, experiences: updatedExperiences});
+        setUserInfo({...userInfo, [category]: updatedExperiences});
     }
 
     return <div>

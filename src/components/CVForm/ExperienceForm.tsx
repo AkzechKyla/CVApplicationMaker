@@ -143,6 +143,7 @@ function ExperienceItem({userInfo, setUserInfo, experience, expIndex, updateExpe
                 descriptions={experience.descriptions}
                 userInfo={userInfo}
                 setUserInfo={setUserInfo}
+                category="experiences"
             />
         </form>
     </>;

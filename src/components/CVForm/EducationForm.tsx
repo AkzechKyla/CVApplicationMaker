@@ -88,12 +88,13 @@ function EducationItem({ index, education, userInfo, setUserInfo }: EducationIte
                 </div>
             </div>
 
-            {/* <DescriptionList
-                index={}
-                descriptions={}
+            <DescriptionList
+                index={index}
+                descriptions={education.descriptions}
                 userInfo={userInfo}
                 setUserInfo={setUserInfo}
-            /> */}
+                category="educations"
+            />
         </form>
     </>
 }
