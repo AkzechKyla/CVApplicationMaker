@@ -16,6 +16,21 @@ interface Education {
   }
 
 function EducationForm({ userInfo, setUserInfo }: Props) {
+    function addEducation() {
+        const newEducation: Education = {
+            schoolName: '',
+            degree: '',
+            startDate: '',
+            endDate: '',
+            isPresent: false,
+            descriptions: []
+        };
+        setUserInfo({
+            ...userInfo,
+            educations: [...userInfo.educations, newEducation]
+        });
+    }
+
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
             <h1 className="font-bold">Education</h1>
@@ -30,7 +45,7 @@ function EducationForm({ userInfo, setUserInfo }: Props) {
             ))}
 
             <div className="flex justify-center">
-                <button className="add-button">
+                <button className="add-button" onClick={addEducation}>
                     <span className="text-lg">+</span> Education
                 </button>
             </div>
