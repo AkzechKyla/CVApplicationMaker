@@ -1,8 +1,8 @@
 interface Experience {
   positionName: string;
   companyName: string;
-  dateStarted: string;
-  dateEnded?: string;
+  startDate: string;
+  endDate?: string;
   isPresent: boolean;
   descriptions: string[];
 }

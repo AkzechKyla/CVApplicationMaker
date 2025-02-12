@@ -21,8 +21,8 @@ export default function App() {
             {
                 positionName: 'IT Manager',
                 companyName: 'Logistics International',
-                dateStarted: '2015-03',
-                dateEnded: '2020-11',
+                startDate: '2015-03',
+                endDate: '2020-11',
                 isPresent: false,
                 descriptions: [
                     'Managed a team of 10 IT professionals.',

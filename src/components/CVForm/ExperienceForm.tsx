@@ -9,8 +9,8 @@ interface Props {
 interface Experience {
     positionName: string;
     companyName: string;
-    dateStarted: string;
-    dateEnded?: string;
+    startDate: string;
+    endDate?: string;
     isPresent: boolean;
     descriptions: string[];
 }
@@ -20,8 +20,8 @@ function ExperienceForm({ userInfo, setUserInfo }: Props) {
         const newExperience: Experience = {
             positionName: '',
             companyName: '',
-            dateStarted: '',
-            dateEnded: '',
+            startDate: '',
+            endDate: '',
             isPresent: false,
             descriptions: []
         };
@@ -110,9 +110,9 @@ function ExperienceItem({userInfo, setUserInfo, experience, expIndex, updateExpe
                     <label className="block text-sm font-bold">Date Started</label>
                     <input
                         type="month"
-                        value={experience.dateStarted}
+                        value={experience.startDate}
                         className="input-box"
-                        onChange={(e) => {updateExperience(expIndex, 'dateStarted', e.target.value)}}
+                        onChange={(e) => {updateExperience(expIndex, 'startDate', e.target.value)}}
                     />
                 </div>
                 <div>
@@ -121,9 +121,9 @@ function ExperienceItem({userInfo, setUserInfo, experience, expIndex, updateExpe
                     <div className="flex items-center gap-4">
                         <input
                             type="month"
-                            value={experience.dateEnded}
+                            value={experience.endDate}
                             className="input-box"
-                            onChange={(e) => {updateExperience(expIndex, 'dateEnded', e.target.value)}}
+                            onChange={(e) => {updateExperience(expIndex, 'endDate', e.target.value)}}
                         />
 
                         <div className="flex gap-1">
