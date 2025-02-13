@@ -63,12 +63,14 @@ export default function App() {
               'over 90% of projects led were finished in due time.'
             ],
           },
-          {
-            skillName: 'Sales Analysis',
-            descriptions: [
-              'background in IT Sales with deep understanding of negotiating contracts.'
-            ]
-          }
+        ],
+        [
+          'Microsoft Office',
+          'Adobe Photoshop',
+          'AutoCAD',
+          'Visual Studio Code',
+          'JIRA',
+          'GitHub'
         ]
     ));
 

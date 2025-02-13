@@ -12,8 +12,9 @@ export default class UserInfo {
   experiences: Experience[];
   educations: Education[];
   skills: Skill[];
+  softwareList: string[];
 
-  constructor(fullName: string, position: string, contactNumber: string, email: string, cityProvince: string, description: string, experiences: Experience[] = [], educations: Education[] = [], skills: Skill[]) {
+  constructor(fullName: string, position: string, contactNumber: string, email: string, cityProvince: string, description: string, experiences: Experience[] = [], educations: Education[] = [], skills: Skill[], softwareList: string[] = []) {
     this.fullName = fullName;
     this.position = position;
     this.contactNumber = contactNumber;
@@ -23,5 +24,6 @@ export default class UserInfo {
     this.experiences = experiences;
     this.educations = educations;
     this.skills = skills;
+    this.softwareList = softwareList;
   }
 }
