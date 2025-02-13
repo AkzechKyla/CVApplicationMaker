@@ -16,6 +16,12 @@ function SkillsForm({ userInfo, setUserInfo }: Props) {
         setUserInfo({...userInfo, skills: [...userInfo.skills, newSkill]})
     }
 
+    function updateSkill(index: number, key: keyof Skill, value: string | boolean) {
+        const updatedSkills = [...userInfo.skills];
+        (updatedSkills[index][key] as typeof value) = value;
+        setUserInfo({...userInfo, experiences: updatedSkills});
+    }
+
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
             <h1 className="font-bold">Skills</h1>
@@ -35,6 +41,7 @@ function SkillsForm({ userInfo, setUserInfo }: Props) {
                             type="text"
                             value={skill.skillName}
                             className="input-box"
+                            onChange={(e) => updateSkill(index, 'skillName', e.target.value)}
                         />
                     </div>
                 </form>
