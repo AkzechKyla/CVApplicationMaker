@@ -27,7 +27,7 @@ function DescriptionList({ index, descriptions, userInfo, setUserInfo, category 
         setUserInfo({...userInfo, [category]: updatedExperiences});
     }
 
-    return <div>
+    return <div className="space-y-2">
         {descriptions.map((description, descIndex) => <div key={descIndex}>
             <label className="block text-sm font-bold">Description</label>
             <div className="flex gap-2">
