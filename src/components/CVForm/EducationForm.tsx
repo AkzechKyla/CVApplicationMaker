@@ -1,18 +1,10 @@
 import UserInfo from "../../models/UserInfo";
 import DescriptionList from "./DescriptionList";
+import Education from "../../models/Education";
 
 interface Props {
     userInfo: UserInfo;
     setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
-}
-
-interface Education {
-    schoolName: string;
-    degree: string;
-    startDate: string;
-    endDate?: string;
-    isPresent: boolean;
-    descriptions: string[];
 }
 
 function EducationForm({ userInfo, setUserInfo }: Props) {
