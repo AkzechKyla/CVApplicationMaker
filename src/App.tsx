@@ -43,6 +43,32 @@ export default function App() {
               'Member of Student Association of Project Management.'
             ]
           }
+        ],
+        [
+          {
+            skillName: 'Business Process Improvement',
+            descriptions: [
+              'history of successful innovations leading to cost savings.',
+            ]
+          },
+          {
+            skillName: 'Vendor Management',
+            descriptions: [
+              'proven track record of managing vendors in projects with budgets of over $1,000,000.'
+            ]
+          },
+          {
+            skillName: 'Project Scheduling',
+            descriptions: [
+              'over 90% of projects led were finished in due time.'
+            ],
+          },
+          {
+            skillName: 'Sales Analysis',
+            descriptions: [
+              'background in IT Sales with deep understanding of negotiating contracts.'
+            ]
+          }
         ]
     ));
 
