@@ -1,18 +1,10 @@
 import UserInfo from "../../models/UserInfo";
 import DescriptionList from "./DescriptionList";
+import Experience from "../../models/Experience";
 
 interface Props {
     userInfo: UserInfo;
     setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
-}
-
-interface Experience {
-    positionName: string;
-    companyName: string;
-    startDate: string;
-    endDate?: string;
-    isPresent: boolean;
-    descriptions: string[];
 }
 
 function ExperienceForm({ userInfo, setUserInfo }: Props) {
