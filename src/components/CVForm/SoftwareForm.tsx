@@ -6,6 +6,11 @@ interface Props {
 }
 
 function SoftwareForm({ userInfo, setUserInfo }: Props) {
+    function addSoftware() {
+        const newSoftware: string = "";
+        setUserInfo({...userInfo, softwareList: [...userInfo.softwareList, newSoftware]})
+    }
+
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
             <h1 className="font-bold">Software</h1>
@@ -24,7 +29,7 @@ function SoftwareForm({ userInfo, setUserInfo }: Props) {
             ))}
 
             <div className="flex justify-center">
-                <button className="add-button">
+                <button className="add-button" onClick={addSoftware}>
                     <span className="text-lg">+</span> Software
                 </button>
             </div>
