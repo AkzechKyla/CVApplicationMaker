@@ -1,6 +1,6 @@
 import Experience from "./Experience";
 import Education from "./Education";
-import Skills from "./Skills";
+import Skill from "./Skill";
 
 export default class UserInfo {
   fullName: string;
@@ -11,9 +11,9 @@ export default class UserInfo {
   description: string;
   experiences: Experience[];
   educations: Education[];
-  skills: Skills[];
+  skills: Skill[];
 
-  constructor(fullName: string, position: string, contactNumber: string, email: string, cityProvince: string, description: string, experiences: Experience[] = [], educations: Education[] = [], skills: Skills[]) {
+  constructor(fullName: string, position: string, contactNumber: string, email: string, cityProvince: string, description: string, experiences: Experience[] = [], educations: Education[] = [], skills: Skill[]) {
     this.fullName = fullName;
     this.position = position;
     this.contactNumber = contactNumber;
