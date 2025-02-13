@@ -19,7 +19,7 @@ function SkillsForm({ userInfo, setUserInfo }: Props) {
     function updateSkill(index: number, key: keyof Skill, value: string | boolean) {
         const updatedSkills = [...userInfo.skills];
         (updatedSkills[index][key] as typeof value) = value;
-        setUserInfo({...userInfo, experiences: updatedSkills});
+        setUserInfo({...userInfo, skills: updatedSkills});
     }
 
     function removeSkill(index: number) {
