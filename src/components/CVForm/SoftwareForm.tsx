@@ -11,6 +11,12 @@ function SoftwareForm({ userInfo, setUserInfo }: Props) {
         setUserInfo({...userInfo, softwareList: [...userInfo.softwareList, newSoftware]})
     }
 
+    function removeSoftware(index: number) {
+        const updatedSoftwareList = [...userInfo.softwareList];
+        updatedSoftwareList.splice(index, 1);
+        setUserInfo({...userInfo, softwareList: updatedSoftwareList});
+    }
+
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
             <h1 className="font-bold">Software</h1>
@@ -22,7 +28,7 @@ function SoftwareForm({ userInfo, setUserInfo }: Props) {
                         value={software}
                         className="input-box"
                     />
-                    <button>
+                    <button onClick={() => removeSoftware(index)}>
                         <span className="material-icons text-red-600">delete</span>
                     </button>
                 </div>
