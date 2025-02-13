@@ -1,4 +1,10 @@
-export function SkillsInfo() {
+import UserInfo from "../../models/UserInfo";
+
+interface Props {
+    userInfo: UserInfo;
+}
+
+export function SkillsInfo({ userInfo }: Props) {
     return(
         <div>
             <div className="flex items-center">
@@ -9,10 +15,13 @@ export function SkillsInfo() {
             <div className="flex w-full">
                 <div className="w-2/6"></div>
                 <div className="w-full text-sm space-y-2">
-                    <p><b>Business Process Improvement</b> - history of successful innovations leading to cost savings.</p>
-                    <p><b>Vendor Management</b> - proven track record of managing vendors in projects with budgets of over $1,000,000.</p>
-                    <p><b>Project Scheduling</b> - over 90% of projects led were finished in due time.</p>
-                    <p><b>Sales Analysis</b> - background in IT Sales with deep understanding of negotiating contracts.</p>
+                    {userInfo.skills.map((skill, index) => (
+                        <p key={index}><b>{skill.skillName}</b> -
+                            {skill.descriptions.map((description, index) => (
+                                <span key={index}> {description}</span>
+                            ))}
+                        </p>
+                    ))}
                 </div>
             </div>
         </div>

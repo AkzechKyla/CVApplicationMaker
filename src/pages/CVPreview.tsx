@@ -15,7 +15,7 @@ function CVPreview({ userInfo }: Props) {
             <PersonalDetailsInfo userInfo={userInfo}/>
             <ExperienceInfo userInfo={userInfo}/>
             <EducationInfo userInfo={userInfo}/>
-            <SkillsInfo />
+            <SkillsInfo userInfo={userInfo}/>
             <SoftwareInfo />
         </div>
     );
