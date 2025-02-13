@@ -1,4 +1,5 @@
 import UserInfo from "../../models/UserInfo";
+import Skill from "../../models/Skill";
 import DescriptionList from "./DescriptionList";
 
 interface Props {
@@ -7,6 +8,14 @@ interface Props {
 }
 
 function SkillsForm({ userInfo, setUserInfo }: Props) {
+    function addSkill() {
+        const newSkill: Skill = {
+            'skillName': '',
+            'descriptions': []
+        }
+        setUserInfo({...userInfo, skills: [...userInfo.skills, newSkill]})
+    }
+
     return(
         <div className="bg-white max-w-full flex-1 p-3 drop-shadow-md rounded-lg space-y-3">
             <h1 className="font-bold">Skills</h1>
@@ -40,7 +49,7 @@ function SkillsForm({ userInfo, setUserInfo }: Props) {
             </>)}
 
             <div className="flex justify-center">
-                <button className="add-button">
+                <button className="add-button" onClick={addSkill}>
                     <span className="text-lg">+</span> Skill
                 </button>
             </div>
