@@ -84,7 +84,7 @@ export default function App() {
               <PersonalDetailsForm userInfo={userInfo} setUserInfo={setUserInfo}/>
               <ExperienceForm userInfo={userInfo} setUserInfo={setUserInfo}/>
               <EducationForm userInfo={userInfo} setUserInfo={setUserInfo}/>
-              <SkillsForm/>
+              <SkillsForm userInfo={userInfo} setUserInfo={setUserInfo}/>
               <SoftwareForm/>
             </div>
           </div>

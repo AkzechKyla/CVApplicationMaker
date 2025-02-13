@@ -5,7 +5,7 @@ interface Props {
     descriptions: string[];
     userInfo: UserInfo;
     setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
-    category: 'experiences' | 'educations';
+    category: 'experiences' | 'educations' | 'skills';
 }
 
 function DescriptionList({ index, descriptions, userInfo, setUserInfo, category }: Props) {
