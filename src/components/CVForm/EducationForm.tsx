@@ -13,7 +13,7 @@ interface Education {
     endDate?: string;
     isPresent: boolean;
     descriptions: string[];
-  }
+}
 
 function EducationForm({ userInfo, setUserInfo }: Props) {
     function addEducation() {
@@ -29,6 +29,12 @@ function EducationForm({ userInfo, setUserInfo }: Props) {
             ...userInfo,
             educations: [...userInfo.educations, newEducation]
         });
+    }
+
+    function updateEducation(expIndex: number, key: keyof Education, value: string | boolean) {
+        const updatedEducations = [...userInfo.educations];
+        (updatedEducations[expIndex][key] as typeof value) = value;
+        setUserInfo({...userInfo, educations: updatedEducations});
     }
 
     function removeEducation(index: number) {
@@ -47,6 +53,7 @@ function EducationForm({ userInfo, setUserInfo }: Props) {
                     education={education}
                     userInfo={userInfo}
                     setUserInfo={setUserInfo}
+                    updateEducation={updateEducation}
                     removeEducation={removeEducation}
                 />
             ))}
@@ -65,10 +72,11 @@ interface EducationItem {
     education: Education;
     userInfo: UserInfo;
     setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
+    updateEducation: (expIndex: number, key: keyof Education, value: string | boolean) => void;
     removeEducation: (index: number) => void;
 }
 
-function EducationItem({ index, education, userInfo, setUserInfo, removeEducation }: EducationItem) {
+function EducationItem({ index, education, userInfo, setUserInfo, updateEducation, removeEducation }: EducationItem) {
     return <>
         <div className="flex justify-between">
             <p className="text-base font-bold">Education {index + 1}</p>
@@ -83,22 +91,27 @@ function EducationItem({ index, education, userInfo, setUserInfo, removeEducatio
                 <input
                     type="text"
                     value={education.degree}
-                    className="input-box" />
+                    className="input-box"
+                    onChange={(e) => updateEducation(index, 'degree', e.target.value)}
+                />
             </div>
             <div>
                 <label className="block text-sm font-bold">School Name</label>
                 <input
                     type="text"
                     value={education.schoolName}
-                    className="input-box" />
+                    className="input-box"
+                    onChange={(e) => updateEducation(index, 'schoolName', e.target.value)}
+                />
             </div>
             <div className="flex gap-4 items-center">
                 <div>
-                    <label className="block text-sm font-bold">Start Date</label>
+                    <label className="block text-sm font-bold">Date Started</label>
                     <input
                         type="month"
                         value={education.startDate}
                         className="input-box"
+                        onChange={(e) => {updateEducation(index, 'startDate', e.target.value)}}
                     />
                 </div>
                 <div>
@@ -109,10 +122,15 @@ function EducationItem({ index, education, userInfo, setUserInfo, removeEducatio
                             type="month"
                             value={education.endDate}
                             className="input-box"
+                            onChange={(e) => {updateEducation(index, 'endDate', e.target.value)}}
                         />
 
                         <div className="flex gap-1">
-                            <input type="checkbox" id="present" />
+                            <input
+                                type="checkbox"
+                                checked={education.isPresent}
+                                onChange={(e) => {updateEducation(index, 'isPresent', e.target.checked)}}
+                            />
                             <label htmlFor="present" className="text-sm font-bold">Present</label>
                         </div>
                     </div>

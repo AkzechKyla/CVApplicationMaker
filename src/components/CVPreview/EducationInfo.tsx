@@ -14,7 +14,7 @@ export function EducationInfo({ userInfo }: Props) {
 
         {userInfo.educations.map((education, index) => (
             <div key={index} className="flex w-full">
-                <div className="w-2/6 font-bold text-sm">{education.startDate} - {education.isPresent ? education.isPresent : education.startDate}</div>
+                <div className="w-2/6 font-bold text-sm">{education.startDate} - {education.isPresent ? 'present' : education.endDate}</div>
                 <div className="w-full">
                     <p className="font-bold pb-2">{education.degree}, {education.schoolName}</p>
                     <ul className="list-disc pl-8 text-sm space-y-2">
