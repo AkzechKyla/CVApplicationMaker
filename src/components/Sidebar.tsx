@@ -1,12 +1,16 @@
 import '../index.css';
+import { useReactToPrint } from 'react-to-print';
+
 import UserInfo from '../models/UserInfo';
 
 interface Props {
-    userInfo: UserInfo;
     setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
+    contentRef: React.RefObject<HTMLDivElement>;
 }
 
-function Sidebar({ userInfo, setUserInfo }: Props) {
+function Sidebar({ setUserInfo, contentRef }: Props) {
+    const reactToPrintFn = useReactToPrint({ contentRef });
+
     function refresh() {
         window.location.reload();
     }
@@ -21,7 +25,7 @@ function Sidebar({ userInfo, setUserInfo }: Props) {
                 <span className="material-icons">refresh</span>
                 <div className="text-base">Sample</div>
             </div>
-            <div className="sidebar-item sidebar-item:active">
+            <div className="sidebar-item sidebar-item:active" onClick={() => reactToPrintFn()}>
                 <span className="material-icons">file_download</span>
                 <div className="text-base">Download</div>
             </div>

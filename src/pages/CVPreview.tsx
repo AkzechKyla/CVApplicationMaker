@@ -7,16 +7,19 @@ import UserInfo from '../models/UserInfo';
 
 interface Props {
     userInfo: UserInfo;
+    contentRef: React.RefObject<HTMLDivElement>;
 }
 
-function CVPreview({ userInfo }: Props) {
+function CVPreview({ userInfo, contentRef }: Props) {
     return(
-        <div className="sticky top-0 p-8 w-[49.606rem] h-[70.156rem] drop-shadow-md bg-white">
-            <PersonalDetailsInfo userInfo={userInfo}/>
-            <ExperienceInfo userInfo={userInfo}/>
-            <EducationInfo userInfo={userInfo}/>
-            <SkillsInfo userInfo={userInfo}/>
-            <SoftwareInfo userInfo={userInfo}/>
+        <div className="sticky top-0 w-[49.606rem] h-[70.156rem] drop-shadow-md bg-white">
+            <div ref={contentRef} className="p-8">
+                <PersonalDetailsInfo userInfo={userInfo}/>
+                <ExperienceInfo userInfo={userInfo}/>
+                <EducationInfo userInfo={userInfo}/>
+                <SkillsInfo userInfo={userInfo}/>
+                <SoftwareInfo userInfo={userInfo}/>
+            </div>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import CVPreview from './pages/CVPreview'
 import Title from './components/Title'
 import Sidebar from './components/Sidebar'
@@ -10,6 +10,7 @@ import SoftwareForm from './components/CVForm/SoftwareForm'
 import UserInfo from './models/UserInfo';
 
 export default function App() {
+    const contentRef = useRef<HTMLDivElement>(null);
     const [userInfo, setUserInfo] = useState(new UserInfo(
       'John Smith',
       'Software Engineer',
@@ -80,7 +81,7 @@ export default function App() {
           <Title/>
           <div className="flex gap-6">
             <div>
-              <Sidebar userInfo={userInfo} setUserInfo={setUserInfo}/>
+              <Sidebar setUserInfo={setUserInfo} contentRef={contentRef}/>
             </div>
             <div className="flex w-full flex-col gap-5 pb-8">
               <PersonalDetailsForm userInfo={userInfo} setUserInfo={setUserInfo}/>
@@ -91,7 +92,7 @@ export default function App() {
             </div>
           </div>
         </div>
-        <CVPreview userInfo={userInfo}/>
+        <CVPreview userInfo={userInfo} contentRef={contentRef}/>
       </div>
     )
 }
