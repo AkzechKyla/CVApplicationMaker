@@ -7,13 +7,17 @@ interface Props {
 }
 
 function Sidebar({ userInfo, setUserInfo }: Props) {
+    function refresh() {
+        window.location.reload();
+    }
+
     function clearAll() {
         setUserInfo(new UserInfo('', '', '', '', '', '', [], [], [], []));
     }
 
     return(
         <div className="bg-white p-3 drop-shadow-md rounded-lg text-center space-y-3">
-            <div className="sidebar-item sidebar-item:active">
+            <div className="sidebar-item sidebar-item:active" onClick={refresh}>
                 <span className="material-icons">refresh</span>
                 <div className="text-base">Sample</div>
             </div>
