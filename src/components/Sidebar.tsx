@@ -1,6 +1,16 @@
 import '../index.css';
+import UserInfo from '../models/UserInfo';
 
-function Sidebar() {
+interface Props {
+    userInfo: UserInfo;
+    setUserInfo: React.Dispatch<React.SetStateAction<UserInfo>>;
+}
+
+function Sidebar({ userInfo, setUserInfo }: Props) {
+    function clearAll() {
+        setUserInfo(new UserInfo('', '', '', '', '', '', [], [], [], []));
+    }
+
     return(
         <div className="bg-white p-3 drop-shadow-md rounded-lg text-center space-y-3">
             <div className="sidebar-item sidebar-item:active">
@@ -11,7 +21,7 @@ function Sidebar() {
                 <span className="material-icons">file_download</span>
                 <div className="text-base">Download</div>
             </div>
-            <div className="sidebar-item sidebar-item:active">
+            <div className="sidebar-item sidebar-item:active" onClick={clearAll}>
                 <span className="material-icons text-red-600">delete</span>
                 <div className="text-base text-red-600">Clear All</div>
             </div>

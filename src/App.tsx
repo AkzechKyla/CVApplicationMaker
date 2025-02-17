@@ -80,7 +80,7 @@ export default function App() {
           <Title/>
           <div className="flex gap-6">
             <div>
-              <Sidebar/>
+              <Sidebar userInfo={userInfo} setUserInfo={setUserInfo}/>
             </div>
             <div className="flex w-full flex-col gap-5 pb-8">
               <PersonalDetailsForm userInfo={userInfo} setUserInfo={setUserInfo}/>
